@@ -8,8 +8,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import { ThemeProvider } from 'styled-components'
 
 import Header from './header'
+import appTheme from './theme'
 import './layout.css'
 
 const Layout = ({ children }) => {
@@ -24,7 +26,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <ThemeProvider theme={appTheme}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
@@ -39,7 +41,7 @@ const Layout = ({ children }) => {
           {`© ${new Date().getFullYear()}`}
         </footer>
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 
