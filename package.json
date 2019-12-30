@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "lego-checker",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A checker for Lego sets",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "H.P.Leung",
   "dependencies": {
     "@rebass/grid": "^6.1.0",
     "babel-plugin-styled-components": "^1.10.6",
@@ -60,9 +60,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/kipperlhp/lego-checker"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/kipperlhp/lego-checker/issues"
   }
 }
