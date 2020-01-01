@@ -25,8 +25,8 @@ storiesOf('Atoms|Text', module)
   ))
   .add('palette', () => (
     <div>
-      <Text palette="grayscale" paletteIndex={3}>
-        This is a Text With grayscale Palette
+      <Text palette="error">
+        This is a Text With error Palette
       </Text>
       <br />
       <Text palette="primary" paletteIndex={0}>
