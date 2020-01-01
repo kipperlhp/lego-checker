@@ -5,14 +5,14 @@ import Image from '.'
 
 const data = useStaticQuery(graphql`
   query {
-    fixedImage: file(relativePath: { eq: "gatsby-icon.png" }) {
+    fixedImage: file(relativePath: { eq: "lego-logo.png" }) {
       childImageSharp {
         fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }
     },
-    fluidImage: file(relativePath: { eq: "gatsby-icon.png" }) {
+    fluidImage: file(relativePath: { eq: "lego-logo.png" }) {
       childImageSharp {
         fluid(maxWidth: 300) {
           ...GatsbyImageSharpFluid
@@ -33,5 +33,8 @@ storiesOf('Atoms|Image', module)
     <Image src={data.fixedImage.childImageSharp.fixed} fixed circle />
   ))
   .add('alt & title', () => (
-    <Image src={data.fluidImage.childImageSharp.fluid} alt="test" title="test title" />
+    <Image src={data.fixedImage.childImageSharp.fixed} fixed alt="test" title="test title" />
+  ))
+  .add('url', () => (
+    <Image src="https://cdn.rebrickable.com/media/sets/10218-1.jpg" width="450" />
   ))
