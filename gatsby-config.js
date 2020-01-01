@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'LEGO checker',
+    title: 'LEGO Checker',
     description: 'A checker for Lego sets',
     author: 'H.P.Leung',
   },

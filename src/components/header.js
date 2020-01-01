@@ -1,42 +1,36 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { palette } from 'styled-theme'
+import Viewport from './atoms/Viewport'
+import Text from './atoms/Text'
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const StyledViewport = styled(Viewport)`
+  padding: 0.7rem 1.0875rem;
+`
+
+const StyledHeader = styled.header`
+  background: ${palette('primary', 0)};
+`
+
+const Header = ({ title }) => {
+  return (
+    <StyledHeader>
+      <StyledViewport flexDirection="column">
+        <Text variant="h3" palette="white" bold>
+          {title}
+        </Text>
+      </StyledViewport>
+    </StyledHeader>
+  )
+}
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  title: PropTypes.string,
 }
 
 Header.defaultProps = {
-  siteTitle: '',
+  title: '',
 }
 
 export default Header
