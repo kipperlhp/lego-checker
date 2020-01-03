@@ -55,7 +55,7 @@ const Image = ({ src, title, alt, fixed, circle, ...props }) => {
 }
 
 Image.propTypes = {
-  src: PropTypes.object,
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   title: PropTypes.string,
   alt: PropTypes.string,
   fixed: PropTypes.bool,
