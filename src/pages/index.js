@@ -5,18 +5,22 @@ import { FORM_ERROR } from 'final-form'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Loader from '../components/atoms/Loader'
 import Viewport from '../components/atoms/Viewport'
 import ProductInfo from '../components/molecules/ProductInfo'
 import SearchForm from '../components/organisms/SearchForm'
 import config from '../../config'
 
-const Loader = styled.div`
+const LoaderContainer = styled.div`
   background: rgba(0, 0, 0, 0.6);
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 class IndexPage extends React.Component {
@@ -108,7 +112,9 @@ class IndexPage extends React.Component {
               mt="2rem"
             />
             {loading ? (
-              <Loader />
+              <LoaderContainer>
+                <Loader />
+              </LoaderContainer>
             ) : null}
           </Box>
         </Viewport>
