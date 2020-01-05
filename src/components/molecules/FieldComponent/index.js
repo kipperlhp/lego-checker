@@ -2,11 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Input from '../../atoms/Input'
 import Text from '../../atoms/Text'
+import AutoSuggestInput from '../AutoSuggestInput'
 
 const renderInput = (input, meta, props) => {
   const invalid = meta.invalid && meta.touched // !!meta.error
   const { value, onChange, type } = input
   switch (type) {
+    case 'autosuggest':
+      return (
+        <AutoSuggestInput
+          invalid={invalid}
+          onChange={onChange}
+          value={value}
+          {...props}
+        />
+      )
     case 'number':
       return (
         <Input

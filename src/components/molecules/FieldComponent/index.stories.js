@@ -46,6 +46,23 @@ storiesOf('Molecules|FieldComponent', module)
               parse={(v) => v} // default parser will change form value of empty string to undefined
             />
             <br />
+            <Field
+              label="AutoSuggest"
+              name="autosuggest"
+              component={FieldComponent}
+              type="autosuggest"
+              validate={validation}
+              placeholder="'autosuggest' field"
+              parse={(v) => v} // default parser will change form value of empty string to undefined
+              fetchSuggestions={(value) => {
+                return [
+                  { label: 'Option A', value: `a-${value}-a` },
+                  { label: 'Option B', value: `b-${value}-b` },
+                  { label: 'Option C', value: `c-${value}-c` },
+                ]
+              }}
+            />
+            <br />
             <Button type="submit" disabled={pristine}>
               <Text palette="white">Submit</Text>
             </Button>
