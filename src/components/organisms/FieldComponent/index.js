@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Input from '../../atoms/Input'
 import Text from '../../atoms/Text'
-import AutoSuggestInput from '../AutoSuggestInput'
+import AutoSuggestInput from '../../molecules/AutoSuggestInput'
 
 const renderInput = (input, meta, props) => {
   const invalid = meta.invalid && meta.touched // !!meta.error

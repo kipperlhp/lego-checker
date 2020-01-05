@@ -5,7 +5,7 @@ import { Form, Field } from 'react-final-form'
 import Button from '../../atoms/Button'
 import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
-import FieldComponent from '../../molecules/FieldComponent'
+import FieldComponent from '../FieldComponent'
 
 const SearchForm = ({ onSubmit, onFetchSuggestions, placeholder }) => {
   return (

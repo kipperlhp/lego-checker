@@ -9,7 +9,7 @@ const validation = (value, formValues) => {
   return !value ? 'Required' : undefined
 }
 
-storiesOf('Molecules|FieldComponent', module)
+storiesOf('Organisms|FieldComponent', module)
   .add('default', () => (
     <Form
       onSubmit={(values) => console.log('values', values)}
