@@ -7,7 +7,7 @@ import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
 import FieldComponent from '../../molecules/FieldComponent'
 
-const SearchForm = ({ onSubmit }) => {
+const SearchForm = ({ onSubmit, onFetchSuggestions, placeholder }) => {
   return (
     <Form
       onSubmit={onSubmit}
@@ -19,8 +19,9 @@ const SearchForm = ({ onSubmit }) => {
                 <Field
                   name="search"
                   component={FieldComponent}
-                  type="text"
-                  placeholder="Enter Set No."
+                  type="autosuggest"
+                  fetchSuggestions={onFetchSuggestions}
+                  placeholder={placeholder}
                   parse={(v) => v}
                 />
               </Box>
@@ -44,10 +45,14 @@ const SearchForm = ({ onSubmit }) => {
 
 SearchForm.propTypes = {
   onSubmit: PropTypes.func,
+  onFetchSuggestions: PropTypes.func,
+  placeholder: PropTypes.string,
 }
 
 SearchForm.defaultProps = {
   onSubmit: () => {},
+  onFetchSuggestions: () => {},
+  placeholder: 'Search',
 }
 
 export default SearchForm

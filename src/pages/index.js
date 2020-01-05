@@ -36,10 +36,11 @@ class IndexPage extends React.Component {
     this.setState({ loading: isLoading })
   }
 
-  fetchProductByNumber(setNum) {
+  fetchProductByNumber(searchStr) {
     const { apiUrl, apiKey } = config
+    const setNum = Number.isNaN(Number(searchStr)) ? searchStr : `${searchStr}-1`
     this.setLoading(true)
-    return fetch(`${apiUrl}/sets/${setNum}-1/?key=${apiKey}`)
+    return fetch(`${apiUrl}/sets/${setNum}/?key=${apiKey}`)
       .then((response) => {
         if (!response.ok) {
           return response.json()
@@ -70,6 +71,26 @@ class IndexPage extends React.Component {
       })
   }
 
+  fetchSetSuggestions(value) {
+    const { apiUrl, apiKey } = config
+    return fetch(`${apiUrl}/sets/?key=${apiKey}&page=1&page_size=10&search=${value}`)
+      .then((response) => {
+        if (!response.ok) {
+          return response.json()
+            .then(({ detail }) => {
+              throw Error(detail)
+            })
+        }
+        return response.json()
+      })
+      .then(({ results }) => {
+        return results.map((result) => ({
+          label: `${result.set_num} - ${result.name}`,
+          value: result.set_num,
+        }))
+      })
+  }
+
   render() {
     const { currentSet, loading } = this.state
     return (
@@ -79,6 +100,8 @@ class IndexPage extends React.Component {
           <Box>
             <SearchForm
               onSubmit={({ search }) => this.fetchProductByNumber(search)}
+              onFetchSuggestions={this.fetchSetSuggestions}
+              placeholder="Enter Set No."
             />
             <ProductInfo
               product={currentSet}
