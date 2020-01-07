@@ -3,6 +3,9 @@ module.exports = {
     title: 'LEGO Checker',
     description: 'A checker for Lego sets',
     author: 'H.P.Leung',
+    image: 'https://lego-checker.netlify.com/icons/icon-256x256.png',
+    siteUrl: 'https://lego-checker.netlify.com',
+    googleSiteVerification: 'qJyoN8659E4-MXYQylN9zTS_yAG-JbcuemWKHdQQOcQ',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -27,6 +30,24 @@ module.exports = {
         theme_color: '#000000',
         display: 'standalone',
         icon: 'src/images/lego-logo.png', // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/sitemap.xml',
+        exclude: ['/404'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://lego-checker.netlify.com',
+        sitemap: 'https://lego-checker.netlify.com/sitemap.xml',
+        policy: [{
+          userAgent: '*',
+          allow: '/',
+        }],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

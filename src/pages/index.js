@@ -99,13 +99,13 @@ class IndexPage extends React.Component {
     const { currentSet, loading } = this.state
     return (
       <Layout>
+        <SEO title="LEGO Checker" />
         <Viewport flexDirection="column">
-          <SEO title="LEGO Checker" />
           <Box>
             <SearchForm
               onSubmit={({ search }) => this.fetchProductByNumber(search)}
               onFetchSuggestions={this.fetchSetSuggestions}
-              placeholder="Enter Set No."
+              placeholder="Enter Set No. / Set Name"
             />
             <ProductInfo
               product={currentSet}
